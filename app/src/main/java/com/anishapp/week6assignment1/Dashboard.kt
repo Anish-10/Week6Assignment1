@@ -4,20 +4,22 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.anishapp.week6assignment1.Adapter.StudentAdapter
+import com.anishapp.week6assignment1.Model.Student
 import com.anishapp.week6assignment1.fragments.AboutUs
 import com.anishapp.week6assignment1.fragments.AddStudent
 import com.anishapp.week6assignment1.fragments.Home
 
 class Dashboard : AppCompatActivity() {
-    private lateinit var RecyclerView : RecyclerView
-    private lateinit var Home : ImageView
-    private lateinit var AddStudent : ImageView
-    private lateinit var AboutUs : ImageView
+    private lateinit var Home : ImageButton
+    private lateinit var AddStudent : ImageButton
+    private lateinit var AboutUs : ImageButton
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -26,10 +28,15 @@ class Dashboard : AppCompatActivity() {
         AddStudent = findViewById(R.id.AddStudent)
         AboutUs = findViewById(R.id.AboutUs)
 
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.LinearContainer, Home())
+            addToBackStack(null)
+            commit()
+        }
+
         Home.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.LinearContainer, Home()
-                )
+                replace(R.id.LinearContainer, Home())
                 addToBackStack(null)
                 commit()
             }

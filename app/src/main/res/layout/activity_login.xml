@@ -21,28 +21,41 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"/>
 
-        <EditText
-            android:id="@+id/Username"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Username"/>
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Username"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Username"
+                android:textColor="@color/black"
+                android:textColorHint="#E91E63"
+                android:background="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Password"
             android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Password"/>
+            android:layout_height="match_parent"
+            android:hint="Password"
+            android:textColor="@color/black"
+            android:textColorHint="#E91E63"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
             android:layout_gravity="center"
             android:text="Login"
+            android:layout_marginTop="25dp"
             android:background="@drawable/mybutton"/>
 
 </LinearLayout>
