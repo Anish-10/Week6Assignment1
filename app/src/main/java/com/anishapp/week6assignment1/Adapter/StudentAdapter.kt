@@ -1,6 +1,8 @@
 package com.anishapp.week6assignment1.Adapter
 
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,17 +12,20 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.anishapp.week6assignment1.Model.Student
 import com.anishapp.week6assignment1.R
+import com.anishapp.week6assignment1.StudentDetails
 import com.anishapp.week6assignment1.fragments.Home
 import com.bumptech.glide.Glide
+import de.hdodenhof.circleimageview.CircleImageView
+import kotlin.collections.ArrayList
 
 class StudentAdapter(
         val lstStudents: ArrayList<Student>,
-        val context: Home
-):RecyclerView.Adapter<StudentAdapter.StudentViewHolder>(),View.OnClickListener
+        val context : Context
+):RecyclerView.Adapter<StudentAdapter.StudentViewHolder>()
 {
     class StudentViewHolder(view:View):RecyclerView.ViewHolder(view)
     {
-        val ProfilePic : ImageView
+        var ProfilePic : CircleImageView
         val Name : TextView
         val Age : TextView
         val Address : TextView
@@ -34,7 +39,6 @@ class StudentAdapter(
             Address = view.findViewById(R.id.Address)
             Gender = view.findViewById(R.id.Gender)
             Delete = view.findViewById(R.id.Delete)
-
         }
     }
 
@@ -52,31 +56,17 @@ class StudentAdapter(
         holder.Age.text = student.Age.toString()
         holder.Address.text = student.Address
         holder.Gender.text = student.Gender
-
+        holder.Delete.setOnClickListener{
+            lstStudents.removeAt(position)
+            notifyDataSetChanged()
+        }
         Glide.with(context)
-            .load(student.ProfilePic)
-            .into(holder.ProfilePic)
+                .load(student.ProfilePic)
+                .into(holder.ProfilePic)
     }
 
-    override fun getItemCount(): Int
-    {
+    override fun getItemCount(): Int {
         return lstStudents.size
     }
 
-    fun deleteStudent(index:Int)
-    {
-        val lstStudents = ArrayList<Student>()
-        lstStudents.removeAt(index)
-
-    }
-
-    override fun onClick(v: View?) {
-        when(v?.id)
-        {
-            R.id.Delete ->
-            {
-                deleteStudent(0)
-            }
-        }
-    }
 }

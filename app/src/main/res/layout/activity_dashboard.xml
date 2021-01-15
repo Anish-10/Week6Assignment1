@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Dashboard">
-
-    <LinearLayout
-        android:id="@+id/LinearContainer"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints" >
+        android:layout_height="match_parent"
+        tools:context=".Dashboard">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#ECE9E9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints">
+        </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/Home"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_round_home_24"/>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ECE9E9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints">
 
-        <ImageButton
-            android:id="@+id/AddStudent"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_round_person_add_alt_1_24" />
+            <ImageButton
+                android:id="@+id/Home"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_round_home_24"
+                android:contentDescription="@string/home" />
 
-        <ImageButton
-            android:id="@+id/AboutUs"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_round_notifications_24"/>
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/AddStudent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_round_person_add_alt_1_24"
+                android:contentDescription="@string/add_student" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/AboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_round_notifications_24"
+                android:contentDescription="@string/about_us" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

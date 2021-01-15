@@ -1,6 +1,5 @@
 package com.anishapp.week6assignment1.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +8,11 @@ import android.view.ViewGroup
 import android.widget.*
 import com.anishapp.week6assignment1.Model.Student
 import com.anishapp.week6assignment1.R
+import com.anishapp.week6assignment1.StudentDetails
+import com.anishapp.week6assignment1.StudentDetails.lstStudents
 
 class AddStudent : Fragment() {
+    private lateinit var profile : EditText
     private lateinit var Fullname : EditText
     private lateinit var Age : EditText
     private lateinit var Address : EditText
@@ -20,7 +22,6 @@ class AddStudent : Fragment() {
     private lateinit var Save : Button
 
     private var gender = ""
-    private val lstStudents = ArrayList<Student>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,7 @@ class AddStudent : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_add_student, container, false)
+        profile = view.findViewById(R.id.profile)
         Fullname = view.findViewById(R.id.Fullname)
         Age = view.findViewById(R.id.Age)
         Address = view.findViewById(R.id.Address)
@@ -54,7 +56,11 @@ class AddStudent : Fragment() {
         Save.setOnClickListener {
             if(checkNull())
             {
-                saveDetails()
+                val pp = profile.text.toString()
+                val fullname = Fullname.text.toString()
+                val age = Age.text.toString().toInt()
+                val address = Address.text.toString()
+                StudentDetails.addStudent(Student(pp,fullname,age,gender,address))
             }
         }
 
@@ -92,30 +98,5 @@ class AddStudent : Fragment() {
         }
         return check
     }
-
-    private fun saveDetails()
-    {
-        val fullname = Fullname.text.toString()
-        val age = Age.text.toString().toInt()
-        val address = Address.text.toString()
-        val gen = gender
-        if(gen == "Male")
-        {
-            val image = R.drawable.male.toString()
-            lstStudents.add(Student(image,fullname,age,gen,address))
-        }
-        else if(gen == "Female")
-        {
-            val image = R.drawable.female.toString()
-            lstStudents.add(Student(image,fullname,age,gen,address))
-        }
-        else
-        {
-            val image = R.drawable.others.toString()
-            lstStudents.add(Student(image,fullname,age,gen,address))
-        }
-
-    }
-
 }
 

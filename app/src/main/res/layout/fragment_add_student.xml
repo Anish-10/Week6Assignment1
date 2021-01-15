@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,6 +26,20 @@
                 android:textStyle="bold"
                 android:fontFamily="cursive"
                 android:gravity="center"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Put your image link here"
+                    android:textColor="@color/black"
+                    android:textColorHint="#E91E63"
+                    android:backgroundTint="#FFFFFF"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_height="wrap_content"
